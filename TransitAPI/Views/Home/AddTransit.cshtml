@@ -1,0 +1,59 @@
+﻿@model TransitAPI.Models.Transit
+
+@{
+    ViewData["Title"] = "AddTransit";
+}
+
+<h2>AddTransit</h2>
+
+<h4>Transit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddTransit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SourceAddress" class="control-label"></label>
+                <input asp-for="SourceAddress" class="form-control" />
+                <span asp-validation-for="SourceAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DestinationAddress" class="control-label"></label>
+                <input asp-for="DestinationAddress" class="form-control" />
+                <span asp-validation-for="DestinationAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<div id="myMap" style='position:relative;width:600px;height:400px;'></div>
+
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AmH6ttRcEnLYH8sjIHAYHf4tVrzoDUTrhRYGa3bS4wqkrZG0-M47JSVU1QvPNyDT' async defer></script>
+<script type="text/javascript">
+
+    function GetMap() {
+        var map = new Microsoft.Maps.Map('#myMap', {});
+    }
+
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
