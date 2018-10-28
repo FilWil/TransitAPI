@@ -23,7 +23,7 @@
                 <span asp-validation-for="DestinationAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <button class="btn btn-default" id="calculate-range-button">GET RANGE</button>
+                <button class="btn btn-default" id="calculate-range-button" type="button">Calculate distance</button>
             </div>
 
             <div class="form-group">
@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="col-md-3">
-        <div id="printoutPanel"></div>
+        <div id="printoutPanel" style="max-height:550px; width: 400px; overflow:auto; scrollbar-darkshadow-color:brown;"></div>
     </div>
 </div>
 
@@ -112,6 +112,7 @@
                     console.log(distance);
                     console.log(parseFloat(distance));
                     document.getElementById('range').value = distance.toFixed(0);
+
                     //here is a little problem with a conversion I guess
                     //form isn't accepting double numbers in format '7.23' -> even if model is set to double
                     //problem might be with culture info and ','/'.' or model is trying to parse 7.23 to double and it returns something strange like 7.23.0
