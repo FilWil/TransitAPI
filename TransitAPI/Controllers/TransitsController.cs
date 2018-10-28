@@ -42,13 +42,14 @@ namespace TransitAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddTransit(Transit transit)
+        public IActionResult AddTransit([FromForm]Transit transit)
         {
             _context.Transits.Add(transit);
             _context.SaveChanges();
 
             string url = Request.Path;
             return Redirect(url);
+            
         }
     }
 }

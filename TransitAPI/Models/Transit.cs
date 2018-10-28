@@ -17,9 +17,13 @@ namespace TransitAPI.Models
         public string DestinationAddress { get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        public double Range { get; set; }
 
         [Required]
+        public double Price { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
     }
